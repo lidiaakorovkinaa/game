@@ -1,0 +1,15 @@
+
+cmake_minimum_required(VERSION 3.17)
+project(new)
+set(CMAKE_CXX_STANDARD 14)
+add_executable(new main.cpp)
+set(SFML_ROOT C:/SFML)
+set(SFML_STATIC_LIBRARIES FALSE)
+#include_directories(${SFML_ROOT}/lib)
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules")
+find_package(SFML 2 REQUIRED COMPONENTS system window graphics network
+        audio)
+if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES})
+endif()
